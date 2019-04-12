@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block content %}
+<br>
+
+<h2 style="color: #464c5b">
+    {{ one_new.title }}
+</h2>
+<p style="color: #657180" align="right">
+        {{ one_new.time }}　　{{ one_new.author }}　　{{ one_new.web }}　　{{ one_new.new_type }}
+</p>
+<h4>摘要</h4>
+<p style="color:cornflowerblue">
+{{ one_new.abstract }}
+</p>
+<h4>正文</h4>
+{% for content in text_arr %}
+<p style="color: #657180">
+    {{ content }}
+</p>
+{% endfor %}
+
+{% if one_new.label != 999  %}
+    <h4>相关新闻</h4>
+    <ol>
+    {% for neearlynew in nearly_news %}
+    <li><a href="/myapp/id/{{neearlynew.id}}"> {{neearlynew.title}} </a><span>[{{ neearlynew.time }}　{{ neearlynew.web }}]</span></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

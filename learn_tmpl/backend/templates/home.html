@@ -1,0 +1,9 @@
+{{ request.GET.urlencode }}
+{% if show %}
+    {% for name in list %}
+    <p> {{ name }} </p>
+    {% empty %}
+    抱歉
+    {% endfor %}
+{% endif %}
+

@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<br>
+<table style="width: 100%">
+    {% for one_job in jobs %}
+        {% if forloop.counter|divisibleby:2 %}
+            <tr class="mylist">
+                <td style="width:10%; text-align: center">
+                    {{forloop.counter}}
+                </td>
+                <td>
+                    {{ one_job.positionName }}
+                </td>
+                <td style="width:10%;">
+                    {{one_job.workYear}}
+                </td>
+                <td style="width:10%;">
+                    {{one_job.salary}}
+                </td>
+                <td style="width:20%;">
+                    {{one_job.companyShortName}}
+                </td>
+            </tr>
+        {% else %}
+            <tr class="mylist2">
+                <div>
+                    <td style="width:10%; text-align: center">
+                        {{forloop.counter}}
+                    </td>
+                    <td>
+                        {{ one_job.positionName }}
+                    </td>
+                    <td style="width:10%;">
+                        {{one_job.workYear}}
+                    </td>
+                    <td style="width:10%;">
+                        {{one_job.salary}}
+                    </td>
+                    <td style="width:20%;">
+                        {{one_job.companyShortName}}
+                    </td>
+                </div>
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+
+{% endblock %}

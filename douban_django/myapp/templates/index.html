@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% load%}
+	<meta charset="utf-8">
+	<title>dbmovie</title>
+	<link href="/myapp/static/main.css" rel="stylesheet">
+	<script language="javascript">
+		function search(){
+			var searchContent = document.getElementById("input_content").value
+            console.warn("searchContent:", searchContent)
+			if (searchContent.length == 0) {
+				return
+			}
+
+			var url = "/myapp/search/";
+			url += searchContent
+
+			window.location.href=url;
+        }
+	</script>
+</head>
+
+<body>
+	<h1 style="text-align:center">dbmovie</h1>
+	<div style="margin:0 auto; text-align:center;">
+		<input style="align-content: center" type="text" id="input_content">
+		<button onclick="search()">搜!</button>
+	</div>
+	
+	{% block content %}
+	{% endblock %}
+</body>
+
+</html>

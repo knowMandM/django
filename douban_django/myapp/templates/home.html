@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% block content %}
+<br>
+
+<table style="width: 100%">
+    <tr class="news">
+        <td>
+            <div class="news">
+                <div class="news_title">
+                    <h3><a href="/myapp/type/热点新闻">
+                            热点新闻
+                        </a>
+                    </h3>
+                </div>
+                {% for one_new in hot_news %}
+                <h4>
+                    <a href="/myapp/id/{{ one_new.id }}">{{ one_new.title }}</a>
+                </h4>
+                <p>
+                    {{ one_new.abstract }}
+                </p>
+                {% endfor %}
+
+            </div>
+        </td>
+        <td>
+            <div class="news">
+                <div class="news_title">
+                    <h3>
+                        <a href="/myapp/src/体育">
+                            体育
+                        </a>
+                    </h3>
+                </div>
+                {% for one_new in sport_news %}
+                <h4>
+                    <a href="/myapp/id/{{ one_new.id }}">{{ one_new.title }}</a>
+                </h4>
+                <p>
+                    {{ one_new.abstract }}
+                </p>
+                {% endfor %}
+
+            </div>
+        </td>
+    </tr>
+    <tr class="news">
+        <td>
+            <div class="news">
+                <div class="news_title">
+                    <h3>
+                        <a href="/myapp/src/政治">
+                            政治
+                        </a>
+                    </h3>
+                </div>
+                {% for one_new in polity_news %}
+                <h4>
+                    <a href="/myapp/id/{{ one_new.id }}">{{ one_new.title }}</a>
+                </h4>
+                <p>
+                    {{ one_new.abstract }}
+                </p>
+                {% endfor %}
+
+            </div>
+        </td>
+        <td>
+            <div class="news">
+                <div class="news_title">
+                    <h3>
+                        <a href="/myapp/src/政治">
+                            经济
+                        </a>
+                    </h3>
+                </div>
+                {% for one_new in stock_news %}
+                <h4>
+                    <a href="/myapp/id/{{ one_new.id }}">{{ one_new.title }}</a>
+                </h4>
+                <p>
+                    {{ one_new.abstract }}
+                </p>
+                {% endfor %}
+
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+{% endblock %}

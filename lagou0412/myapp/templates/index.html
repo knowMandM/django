@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% load%}
+	<meta charset="utf-8">
+	<title>数据展示</title>
+	<link href="/myapp/static/main.css" rel="stylesheet">
+	<script language="javascript">
+		function search(){
+			var searchContent = document.getElementById("input_content").value
+            console.warn("searchContent:", searchContent)
+			if (searchContent.length == 0) {
+				return
+			}
+
+			var url = "/myapp/search/";
+			url += searchContent
+
+			window.location.href=url;
+        }
+
+		function workYear_salary(){
+			page("workYear_salary")
+        }
+
+		function edu_salary(){
+			page("edu_salary")
+        }
+
+		function edu_count(){
+			page("edu_count")
+        }
+
+		function page(pageName){
+            console.warn(pageName)
+			var url = "/myapp/staticsPage/";
+			url += pageName
+
+			window.open(url)
+        }
+	</script>
+</head>
+
+<body>
+	<h1 style="text-align:center">数据展示</h1>
+	
+	<div style="text-align:center;" >
+		<button onclick="edu_salary()">学历&薪资</button>
+		<button onclick="edu_count()">学历&职位数量</button>
+		<button onclick="workYear_salary()">年限&薪资</button>
+	</div> <br>
+
+	<div style="margin:0 auto; text-align:center;">
+		<input style="align-content: center" type="text" id="input_content">
+		<button onclick="search()">搜索</button>
+	</div>
+	
+	{% block content %}
+	{% endblock %}
+</body>
+
+</html>

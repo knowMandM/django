@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% load%}
+	<meta charset="utf-8">
+	<title>文本摘要系统</title>
+	<link href="/myapp/static/main.css" rel="stylesheet">
+	<script language="javascript">
+		function search(){
+			var searchContent = document.getElementById("input_content").value
+            console.warn("searchContent:", searchContent)
+			if (searchContent.length == 0) {
+				return
+			}
+
+			var url = "/myapp/search/";
+			url += searchContent
+
+			window.location.href=url;
+        }
+	</script>
+</head>
+
+<body>
+	<h1>文本摘要系统</h1>
+	<div class="top">
+		<ul>
+			<li><a class="active" href="/myapp">首页</a></li>
+			<div class="dropdown">
+				<a href="#" class="dropbtn">新闻分类</a>
+				<div class="dropdown-content">
+					<a href="/myapp/type/{{"政治"}}">政治</a>
+					<a href="/myapp/type/{{"财经"}}">经济</a>
+					<a href="/myapp/type/{{"体育"}}">体育</a>
+					<a href="/myapp/type/{{"教育"}}">教育</a>
+					<a href="/myapp/type/{{"军事"}}">军事</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<a href="#" class="dropbtn">来源分类</a>
+				<div class="dropdown-content">
+					<a href="/myapp/from/{{"新浪"}}">新浪</a>
+					<a href="/myapp/from/{{"网易"}}">网易</a>
+					<a href="/myapp/from/{{"腾讯"}}">腾讯</a>
+					<a href="/myapp/from/{{"凤凰"}}">凤凰</a>
+					<a href="/myapp/from/{{"东方网"}}">东方</a>
+				</div>
+			</div>
+			<button onclick="search()" style="float: right">搜!</button>
+			<input style="float: right" type="text" id="input_content">
+		</ul>
+	</div>
+	{% block content %}
+	{% endblock %}
+</body>
+
+</html>
